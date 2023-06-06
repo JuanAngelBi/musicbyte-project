@@ -25,7 +25,7 @@
         </a>
         <nav>
             <a href="help.html" class="nav-link">Ayuda</a>
-            <a href="about.html" class="nav-link">Sobre nosotros</a>
+            <a href="about.html" class="nav-link">Información</a>
             <a href="ingreso.php" class="nav-link">Ingresar</a>
         </nav>
     </header>
