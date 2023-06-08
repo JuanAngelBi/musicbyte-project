@@ -155,7 +155,7 @@ if (isset($_SESSION['usuario'])) {
     </section>
     <!-- Footer-->
     <footer class="footer bg-black small text-center text-white-50">
-        <div class="container px-4 px-lg-5">Copyright &copy; Your Website 2023</div>
+        <div class="container px-4 px-lg-5">Copyright &copy; Your Website 2023 </br><a href="./admin/zona_admin.php">Administración</a></div>
     </footer>
     <script src="./assets/js/script.js"></script>
     <script src="https://cdn.startbootstrap.com/sb-forms-latest.js"></script>

@@ -23,8 +23,8 @@ if (isset($_SESSION['usuario'])) {
 
 <body>
     <nav class="navbar navbar-expand-lg navbar-light fixed-top bg-dark" id="mainNav">
-        <div class="container px-4 px-lg-5">
-            <a class="navbar-brand text-white-50" href="index.php">Volver a inicio</a>
+        <div class="container py-3 px-lg-5">
+            <a class="navbar-brand text-white-50" href="index.php">Volver</a>
             <button class="navbar-toggler navbar-toggler-right" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
                 Menu
                 <i class="fas fa-bars"></i>
