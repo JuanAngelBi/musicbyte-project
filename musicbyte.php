@@ -105,8 +105,7 @@ if (!isset($_SESSION['usuario'])) {
                                 <td><?php echo $fila['enlace']; ?></td>
                             </tr>
                     <?php     }
-                    }; 
-                    echo $SQL;?>
+                    };  ?>
                 </tbody>
             </table>
         </div>
