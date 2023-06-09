@@ -89,11 +89,11 @@ if (!isset($_SESSION['usuario'])) {
                         $busqueda = $_GET['busqueda'];
 
                         if (isset($_GET['busqueda'])) {
-                            $where = "WHERE canciones.nombre LIKE '%.$busqueda.%' OR interpretes.seudonimo LIKE '$.$busqueda.$'";
+                            $where = "WHERE nombre LIKE '%.$busqueda.%' OR seudonimo LIKE '$.$busqueda.$'";
                         }
                     }
 
-                    $SQL = "SELECT canciones.id, nombre, enlace FROM canciones JOIN interpretes ON canciones.interprete=interpretes.id $where";
+                    $SQL = "SELECT canciones.id, nombre, seudonimo, enlace FROM canciones JOIN interpretes ON canciones.interprete=interpretes.id $where";
                     $dato = mysqli_query($conexionbd, $SQL);
 
                     if ($dato->num_rows > 0) {
@@ -102,6 +102,7 @@ if (!isset($_SESSION['usuario'])) {
                                 <td scope="row"><?php echo $fila['id']; ?></td>
                                 <td><?php echo $fila['cancion']; ?></td>
                                 <td><?php echo $fila['interprete']; ?></td>
+                                <td><?php echo $fila['seudonimo']; ?></td>
                                 <td><?php echo $fila['enlace']; ?></td>
                             </tr>
                     <?php     }
