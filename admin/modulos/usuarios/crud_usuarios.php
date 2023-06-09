@@ -43,7 +43,7 @@ header("location:crud_usuarios.php");
                     <td><?php echo $usuario['correo']; ?></td>
                     <td><?php echo '--'; ?></td>
                     <td>
-                        <a href="crud_usuarios.php?id=<?php echo $usuario['id'];?>" class="btn btn-secondary"><i class="bi bi-trash-fill"></i> Eliminar</a>
+                        <a href="crud_usuarios.php?id=<?php echo $usuario['id'];?>" class="btn btn-secondary bg-gradient"><i class="bi bi-trash-fill"></i> Eliminar</a>
                     </td>
                 </tr>
             <?php } ?>
