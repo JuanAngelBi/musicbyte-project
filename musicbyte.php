@@ -93,20 +93,23 @@ if (!isset($_SESSION['usuario'])) {
                         }
                     }
 
-                    $SQL = "SELECT canciones.id, nombre, seudonimo, enlace FROM canciones JOIN interpretes ON canciones.interprete=interpretes.id $where";
+                    $SQL = "SELECT canciones.id, nombre, seudonimo, enlace 
+                    FROM canciones 
+                    INNER JOIN interpretes 
+                    ON canciones.interprete=interpretes.id $where";
                     $dato = mysqli_query($conexionbd, $SQL);
 
                     if ($dato->num_rows > 0) {
                         while ($fila = mysqli_fetch_array($dato)) { ?>
                             <tr>
                                 <td scope="row"><?php echo $fila['id']; ?></td>
-                                <td><?php echo $fila['cancion']; ?></td>
-                                <td><?php echo $fila['interprete']; ?></td>
+                                <td><?php echo $fila['nombre']; ?></td>
                                 <td><?php echo $fila['seudonimo']; ?></td>
-                                <td><?php echo $fila['enlace']; ?></td>
+                                <td><a href="<?php echo $fila['enlace']; ?>">Link</a></td>
                             </tr>
                     <?php     }
-                    };  ?>
+                    };
+                    ?>
                 </tbody>
             </table>
         </div>
