@@ -19,7 +19,7 @@ if ($_POST) {
     $stm->bindParam(":album", $album);
     $stm->execute();
 
-    header("location:crud_canciones.php");
+    header("location:./crud_canciones.php");
 }
 ?>
 

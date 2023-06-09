@@ -11,27 +11,9 @@ if (!isset($_SESSION['usuario'])) {
         ';
     session_destroy();
     die();
-}
+};
+
 ?>
-
-<!-- <!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MusicByte - music for everyone</title>
-    <link rel="stylesheet" href="./assets/css/estilo_reproductor.css">
-</head>
-
-<body>
-    
-
-    <a href="php/cerrar_sesion.php">Cerrar sesión</a>
-
-
-</body> -->
 
 </html>
 <!DOCTYPE html>
@@ -78,32 +60,64 @@ if (!isset($_SESSION['usuario'])) {
     </nav>
     <!-- Page content-->
     <div class="container">
+        </form class="d-flex">
         <br>
+        <form action="" method="GET">
+            <button class="btn btn-outline-secondary" type="submit" name="enviar"><b>Buscar</b></button>
+            <p></p>
+            <input class="form-control" type="search" placeholder="Escriba una cancion o artista" name="busqueda"><br>
+        </form>
+    </div>
+
+    <div class="container">
         <div class="table-responsive">
-            <table class="table bg-dark bg-gradient text-light">
+            <table class="table table-secondary">
                 <thead>
                     <tr>
-                        <th scope="col">Column 1</th>
-                        <th scope="col">Column 2</th>
-                        <th scope="col">Column 3</th>
+                        <th scope="col">ID</th>
+                        <th scope="col">Cancion</th>
+                        <th scope="col">Interprete</th>
+                        <th scope="col">Link</th>
                     </tr>
                 </thead>
                 <tbody>
-                    <tr class="">
-                        <td scope="row">R1C1</td>
-                        <td>R1C2</td>
-                        <td>R1C3</td>
-                    </tr>
+                    <?php
+                    $conexionbd = mysqli_connect("localhost", "root", "", "musicbyte_project");
+                    $where = "";
+
+                    if (isset($_GET['enviar'])) {
+                        $busqueda = $_GET['busqueda'];
+
+                        if (isset($_GET['busqueda'])) {
+                            $where = "WHERE canciones.nombre LIKE '%.$busqueda.%' OR interpretes.seudonimo LIKE '$.$busqueda.$'";
+                        }
+                    }
+
+                    $SQL = "SELECT canciones.id, nombre, enlace FROM canciones JOIN interpretes ON canciones.interprete=interpretes.id $where";
+                    $dato = mysqli_query($conexionbd, $SQL);
+
+                    if ($dato->num_rows > 0) {
+                        while ($fila = mysqli_fetch_array($dato)) { ?>
+                            <tr>
+                                <td scope="row"><?php echo $fila['id']; ?></td>
+                                <td><?php echo $fila['cancion']; ?></td>
+                                <td><?php echo $fila['interprete']; ?></td>
+                                <td><?php echo $fila['enlace']; ?></td>
+                            </tr>
+                    <?php     }
+                    }; 
+                    echo $SQL;?>
                 </tbody>
             </table>
         </div>
+
     </div>
-    
+
     <!-- Bootstrap core JS-->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
     <!-- Core theme JS-->
     <script src="https://kit.fontawesome.com/8b920f4e0d.js" crossorigin="anonymous"></script>
-    <script src="./font-awesome/js/all.min.js"></script>
+    <!-- <script src="./font-awesome/js/all.min.js"></script> -->
 </body>
 
 </html>

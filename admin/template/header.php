@@ -25,6 +25,7 @@
                 <a class="nav-link" href="<?php echo $url_base ?>/usuarios/crud_usuarios.php">Usuarios</a>
                 <a class="nav-link" href="<?php echo $url_base ?>/canciones/crud_canciones.php">Canciones</a>
                 <a class="nav-link" href="<?php echo $url_base ?>/interpretes/crud_interpretes.php">Interpretes</a>
+                <a class="nav-link" href="../index.php">Salir</a>
             </li>
         </ul>
     </nav>
